@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap');
+
+.sale {
+    background-color: black;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.sale p {
+    color: #fff;
+}
+
+.sale a {
+    color: #CEBD9C;
+    border-bottom: 1px solid #CEBD9C;
+    font-weight: 700;
+}
+.sale a:hover{
+    transition: all .3s ease-in-out;
+    letter-spacing: 1.1px;
+}
+
+.carousel {
+    height: 34rem;
+}
+.swiper{
+    margin: 0 !important;
+}
+body {
+    background: #eee;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0 ;
+    padding: 0;
+}
+
+.carousel .swiper {
+    height: auto;
+}
+/* .carousel button{
+    background-color: red;
+} */
+
+.swiper-slide {
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.swiper-lazy-preloader {
+    width: 50px;
+    height: 50px;
+    background-image: url('data:image/svg+xml;base64,...');
+
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-active {
+    position: absolute;
+    left: 5%;
+    width: 30%;
+}
+
+.slider-active2 {
+    position: absolute;
+    right: 10%;
+    width: 30%;
+}
+.hero-caption{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.hero-caption span{
+    color: red;
+    font-size: 35px;
+    font-family: "Clicker Script", cursive;
+}
+.hero-caption p{
+    color: grey;
+}
+.hero-caption button{
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    width: 30%;
+    border: none;
+}
+.hero-caption button:hover{
+    transition: all .3s;
+    border: 1px solid black;
+    background-color: transparent;
+    color: black;
+}

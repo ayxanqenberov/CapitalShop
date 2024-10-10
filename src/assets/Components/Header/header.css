@@ -1,0 +1,87 @@
+header{
+    display: flex;
+    flex-direction: column;
+}
+.upHeader{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 0 auto;
+    height: 30px;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #C1D6FF;
+}
+.upHeader ul {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.upHeader ul li a{
+    color: grey;
+}
+.upHeader ul li a:hover{
+    transition: all .3s;
+    color: orange;
+}
+.socialHeader{
+    display: flex;
+    gap: 23px;
+}
+.socialHeader ul li{
+    padding-right: 10px;
+}
+.socialHeader ul li{
+    border-right: 1px solid grey;
+}
+#social li{
+    border: none;
+}
+#social li a {
+    display: inline-block; 
+}
+
+#social li a:hover {
+    color: red;
+    animation: afterSocial 1s forwards;
+}
+
+@keyframes afterSocial {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
+}
+.mainHeader{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    justify-content: space-around;
+}
+.mainHeader ul{
+    display: flex;
+    gap: 25px;
+}
+.mainHeader ul li a{
+    color: black;
+    font-size: 17px;
+    font-weight: 600;
+}
+.mainHeader ul li a:hover{
+    transition: all .3s;
+    color: red;
+}
+.moreFeatures{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.moreFeatures a{
+    font-size: 25px;
+}
+.moreFeatures a:hover{
+    transition: all .3s;
+    color: red;
+}
