@@ -17,9 +17,9 @@
     color: #CEBD9C;
     border-bottom: 1px solid #CEBD9C;
     font-weight: 700;
+    transition: all .3s ease-in-out;
 }
 .sale a:hover{
-    transition: all .3s ease-in-out;
     letter-spacing: 1.1px;
 }
 

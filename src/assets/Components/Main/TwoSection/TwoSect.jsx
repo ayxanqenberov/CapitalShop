@@ -1,13 +1,38 @@
-import React, { useRef } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules"; // Removed Pagination import
+import { Navigation } from "swiper/modules";
 import "./twoSect.css";
+import { getProducts } from "../../../features/Api/ApiSlider";
+import { SlBasket } from "react-icons/sl";
+import { FaRegHeart } from "react-icons/fa6";
+import { CiZoomIn } from "react-icons/ci";
+import { addFavorite } from "../../../features/Favorites/FavoriteSlice";
 
 const TwoSect = () => {
-  const swiperRef = useRef(null);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.data.value);
+  const status = useSelector((state) => state.data.status);
+
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(getProducts());
+    }
+  }, [status, dispatch]);
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  if (status === "failed") {
+    return <div>Error loading products</div>;
+  }
+
+  const fav = (product) => {
+    dispatch(addFavorite(product));
+  };
 
   return (
     <section id="twoSect">
@@ -22,79 +47,43 @@ const TwoSect = () => {
       </div>
       <div className="downPartTrends">
         <Swiper
-          // onSwiper={(swiper) => (swiperRef.current = swiper)} // Uncomment if you need the swiper reference
           slidesPerView={3}
           centeredSlides={true}
           spaceBetween={10}
-          loop={true}
-          navigation={true} // Keep navigation enabled
-          modules={[Navigation]} // Removed Pagination module
+          loop={products.length > 3} // Loop should only be true if there are more than 3 products
+          navigation={true}
+          modules={[Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="product">
-              <div className="imgs">
-                <img
-                  className="img"
-                  src="https://preview.colorlib.com/theme/capitalshop/assets/img/gallery/latest3.jpg"
-                  alt="Latest Fashion Item 1"
-                />
+          {products.map((product) => (
+            <SwiperSlide key={product.id}>
+              <div className="product">
+                <div className="imgs">
+                  <img
+                    className="img"
+                    src={product.image}
+                    alt={product.title}
+                  />
+                  <div className="featurePart">
+                    <div>
+                      <SlBasket />
+                    </div>
+                    <div>
+                      <FaRegHeart onClick={() => fav(product)} />
+                    </div>
+                    <div>
+                      <CiZoomIn />
+                    </div>
+                  </div>
+                </div>
+                <a>{product.title}</a>
+                <div className="price">
+                  <span>{`$${product.price - 7}`}</span>
+                  <span>${product.price}</span>
+                </div>
               </div>
-              <a>Cashmere Tank + Bag</a>
-              <div className="price">
-                <span>$98.00</span>
-                <span>$120.00</span>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="product">
-              <div className="imgs">
-                <img
-                  className="img"
-                  src="https://preview.colorlib.com/theme/capitalshop/assets/img/gallery/latest2.jpg"
-                  alt="Latest Fashion Item 2"
-                />
-              </div>
-              <a>Cashmere Tank + Bag</a>
-              <div className="price">
-                <span>$98.00</span>
-                <span>$120.00</span>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="product">
-              <div className="imgs">
-                <img
-                  className="img"
-                  src="https://preview.colorlib.com/theme/capitalshop/assets/img/gallery/latest4.jpg"
-                  alt="Latest Fashion Item 3"
-                />
-              </div>
-              <a>Cashmere Tank + Bag</a>
-              <div className="price">
-                <span>$98.00</span>
-                <span>$120.00</span>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="product">
-              <div className="imgs">
-                <img
-                  className="img"
-                  src="https://preview.colorlib.com/theme/capitalshop/assets/img/gallery/latest1.jpg"
-                  alt="Latest Fashion Item 4"
-                />
-              </div>
-              <a>Cashmere Tank + Bag</a>
-              <div className="price">
-                <span>$98.00</span>
-                <span>$120.00</span>
-              </div>
-            </div>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </section>
@@ -102,4 +91,3 @@ const TwoSect = () => {
 };
 
 export default TwoSect;
-
