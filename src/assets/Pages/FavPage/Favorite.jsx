@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import './favPage.css';
 
 const Favorite = () => {
   const favorites = useSelector((state) => state.favorite.favorites);
@@ -7,7 +8,7 @@ const Favorite = () => {
   return (
     <section>
       <h2>Your Favorites</h2>
-      <div>
+      <div className='favs'>
         {favorites.length > 0 ? (
           favorites.map((product) => (
             <div key={product.id} className="favorite-item">

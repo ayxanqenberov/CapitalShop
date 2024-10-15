@@ -32,8 +32,11 @@ const TwoSect = () => {
 
   const fav = (product) => {
     dispatch(addFavorite(product));
+    console.log(product);
+    
+    
   };
-
+  
   return (
     <section id="twoSect">
       <div className="upPartTrend">
@@ -50,7 +53,7 @@ const TwoSect = () => {
           slidesPerView={3}
           centeredSlides={true}
           spaceBetween={10}
-          loop={products.length > 3} // Loop should only be true if there are more than 3 products
+          loop={products.length > 3}
           navigation={true}
           modules={[Navigation]}
           className="mySwiper"

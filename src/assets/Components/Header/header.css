@@ -1,8 +1,9 @@
-header{
+header {
     display: flex;
     flex-direction: column;
 }
-.upHeader{
+
+.upHeader {
     display: flex;
     width: 100%;
     justify-content: space-around;
@@ -12,33 +13,41 @@ header{
     background-color: #FFFFFF;
     border-bottom: 1px solid #C1D6FF;
 }
+
 .upHeader ul {
     display: flex;
     gap: 10px;
     align-items: center;
 }
-.upHeader ul li a{
+
+.upHeader ul li a {
     color: grey;
 }
-.upHeader ul li a:hover{
+
+.upHeader ul li a:hover {
     transition: all .3s;
     color: orange;
 }
-.socialHeader{
+
+.socialHeader {
     display: flex;
     gap: 23px;
 }
-.socialHeader ul li{
+
+.socialHeader ul li {
     padding-right: 10px;
 }
-.socialHeader ul li{
+
+.socialHeader ul li {
     border-right: 1px solid grey;
 }
-#social li{
+
+#social li {
     border: none;
 }
+
 #social li a {
-    display: inline-block; 
+    display: inline-block;
 }
 
 #social li a:hover {
@@ -50,38 +59,92 @@ header{
     from {
         transform: rotateY(0deg);
     }
+
     to {
         transform: rotateY(180deg);
     }
 }
-.mainHeader{
+
+.mainHeader {
     display: flex;
     align-items: center;
     height: 100px;
     justify-content: space-around;
+    position: relative;
 }
-.mainHeader ul{
+
+.mainHeader ul {
     display: flex;
     gap: 25px;
 }
-.mainHeader ul li a{
+
+.mainHeader ul li a {
     color: black;
     font-size: 17px;
     font-weight: 600;
 }
-.mainHeader ul li a:hover{
+
+.mainHeader ul li a:hover {
     transition: all .3s;
     color: red;
 }
-.moreFeatures{
+
+.moreFeatures {
     display: flex;
     align-items: center;
     gap: 12px;
 }
-.moreFeatures a{
+
+.moreFeatures a {
     font-size: 25px;
 }
-.moreFeatures a:hover{
+
+.moreFeatures a:hover {
     transition: all .3s;
     color: red;
+}
+
+
+.moreFeatures {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative; 
+}
+
+.registers {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0; 
+    border: 1px solid gray;
+    padding: 15px;
+    border-radius: 10px;
+    width: 109px;
+    background-color: yellow;
+    z-index: 100;
+}
+
+.user-link:hover + .registers,
+.registers:hover {
+    display: block;
+}
+
+.registers button {
+    width: 100%;
+    background-color: rgb(59, 59, 59);
+
+    color: #fff;
+    border-radius: 50px;
+    border: none;
+    height: 25px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.registers button:hover{
+    color: rgb(242, 241, 241);
+    background-color: black;
+}
+.registers button:first-child {
+    margin-bottom: 5px;
 }

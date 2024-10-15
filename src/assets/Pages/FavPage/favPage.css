@@ -1,0 +1,27 @@
+h2 {
+    text-align: center;
+}
+
+.favs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+    height: 30rem;
+}
+
+.favorite-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 150px;
+    /* Adjust as needed */
+}
+
+.favorite-item img {
+    max-width: 100%;
+    /* Responsive image */
+    height: auto;
+}

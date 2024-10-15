@@ -8,7 +8,19 @@ import { FaYoutube } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { FaUserAlt } from "react-icons/fa";
 import { SlBasket } from "react-icons/sl";
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
+  const navigate = useNavigate();
+
+  const getFav = () => {
+    navigate("/favorites"); // Navigate to the favorites page
+  };
+
+  const getSign = () => {
+    navigate("/sign"); // Navigate to the sign-up page
+  };
+
   return (
     <header>
       <div className="upHeader">
@@ -28,7 +40,7 @@ const Header = () => {
         </ul>
         <div className="socialHeader">
           <ul>
-            <li>
+            <li onClick={getFav}>
               <a href="">My Wishlist</a>
             </li>
             <li>
@@ -37,19 +49,29 @@ const Header = () => {
           </ul>
           <ul id="social">
             <li>
-              <a><FaFacebookF /></a>
+              <a>
+                <FaFacebookF />
+              </a>
             </li>
             <li>
-            <a><FiInstagram /></a>
+              <a>
+                <FiInstagram />
+              </a>
             </li>
             <li>
-            <a><FaTwitter /></a>
+              <a>
+                <FaTwitter />
+              </a>
             </li>
             <li>
-            <a><FaLinkedinIn /></a>
+              <a>
+                <FaLinkedinIn />
+              </a>
             </li>
             <li>
-            <a><FaYoutube /></a>
+              <a>
+                <FaYoutube />
+              </a>
             </li>
           </ul>
         </div>
@@ -83,9 +105,19 @@ const Header = () => {
           </li>
         </ul>
         <div className="moreFeatures">
-        <a href=""><CiSearch /></a>
-        <a href=""><FaUserAlt/></a>
-        <a href=""><SlBasket /></a>
+          <a href="#">
+            <CiSearch />
+          </a>
+          <a href="#" className="user-link">
+            <FaUserAlt />
+          </a>
+          <div className="registers">
+            <button onClick={getSign}>Sign Up</button>
+            <button>Login</button>
+          </div>
+          <a href="#">
+            <SlBasket />
+          </a>
         </div>
       </div>
     </header>
