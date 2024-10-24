@@ -12,7 +12,7 @@ const Sign = () => {
         values
       );
     } catch (error) {
-      console.error("Error occurred while submitting data:", error);
+      console.error("Error:", error);
     }
   };
 

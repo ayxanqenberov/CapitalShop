@@ -7,21 +7,31 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 30px;
     background-color: yellow;
     height: 30rem;
 }
 
 .favorite-item {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 150px;
+}
+.favories{
+    display: flex;
     border: 1px solid #ccc;
+    background-color: white;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    width: 150px;
-    /* Adjust as needed */
+    height: 300px;
 }
-
 .favorite-item img {
     max-width: 100%;
-    /* Responsive image */
-    height: auto;
+    height: 150px;
+    object-fit: cover;
+    padding: 2px;
 }

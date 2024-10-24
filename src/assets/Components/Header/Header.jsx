@@ -14,11 +14,11 @@ const Header = () => {
   const navigate = useNavigate();
 
   const getFav = () => {
-    navigate("/favorites"); // Navigate to the favorites page
+    navigate("/favorites"); 
   };
 
   const getSign = () => {
-    navigate("/sign"); // Navigate to the sign-up page
+    navigate("/sign"); 
   };
 
   return (
@@ -77,13 +77,15 @@ const Header = () => {
         </div>
       </div>
       <div className="mainHeader">
-        <img
+        <a href="/">
+        <img 
           src="https://preview.colorlib.com/theme/capitalshop/assets/img/logo/logo.png.webp"
           alt=""
         />
+        </a>
         <ul>
           <li>
-            <a href="">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
             <a href="">Men</a>

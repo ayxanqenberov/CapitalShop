@@ -1,9 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './favPage.css';
+import { BsXLg } from "react-icons/bs";
+import { removeFav } from '../../features/Favorites/FavoriteSlice';
 
 const Favorite = () => {
-  const favorites = useSelector((state) => state.favorite.favorites);
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.fav.favs); 
+
+  const getRemove = (product) => {
+    dispatch(removeFav(product)); 
+  }
 
   return (
     <section>
@@ -11,10 +18,13 @@ const Favorite = () => {
       <div className='favs'>
         {favorites.length > 0 ? (
           favorites.map((product) => (
-            <div key={product.id} className="favorite-item">
-              <img src={product.image} alt={product.title} />
-              <p>{product.title}</p>
-              <p>{`$${product.price}`}</p>
+            <div key={product.id} className='favories'>
+              <div className="favorite-item">
+                <img src={product.image} alt={product.title} />
+                <p>{product.title}</p>
+                <p>{`$${product.price}`}</p>
+              </div>
+              <BsXLg onClick={() => getRemove(product)} />
             </div>
           ))
         ) : (

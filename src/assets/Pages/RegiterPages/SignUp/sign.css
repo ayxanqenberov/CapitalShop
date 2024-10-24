@@ -30,3 +30,14 @@
 .error{
     color: red;
 }
+#submit{
+    padding: 5px;
+    width: 150px;
+    border-radius: 20px;
+    border: none;
+    transition: all .3s;
+}
+#submit:hover{
+    background-color: rgb(202, 202, 202);
+    color: rgb(58, 58, 58);
+}

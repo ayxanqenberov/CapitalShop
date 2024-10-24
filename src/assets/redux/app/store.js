@@ -5,7 +5,7 @@ import favoriteReducer from '../../features/Favorites/FavoriteSlice';
 export const store = configureStore({
   reducer: {
     data: alldataReducer,
-    favorite: favoriteReducer,
+    fav: favoriteReducer,
   },
 });
 

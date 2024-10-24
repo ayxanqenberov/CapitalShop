@@ -1,28 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
-export const favoriteSlice = createSlice({
-  name: 'favorite',
-  initialState: {
-    favorites: [],
-  },
+const initialState = {
+  favs: JSON.parse(localStorage.getItem("favs")) || []
+};
+
+const favoritesSlice = createSlice({
+  name: "favorites",
+  initialState,
   reducers: {
-    addFavorite: (state, action) => {
-      const isExist = state.favorites.some(
-        (product) => product.id === action.payload.id
-      );
-      if (!isExist) {
-        state.favorites.push(action.payload);
-      } else {
-        alert('This product is already in your favorites!');
+    addFav: (state, action) => {
+      const itemFav = state.favs.find(item => item.id === action.payload.id);
+      if (!itemFav) {
+        state.favs.push(action.payload);
+        localStorage.setItem('favs', JSON.stringify(state.favs));
       }
     },
-    // removeFavorite: (state, action) => {
-    //   state.favorites = state.favorites.filter(
-    //     (product) => product.id !== action.payload.id
-    //   );
-    // },
+    removeFav: (state, action) => {
+      if (action.payload && action.payload.id) {
+        state.favs = state.favs.filter(item => item.id !== action.payload.id);
+        localStorage.setItem('favs', JSON.stringify(state.favs)); 
+      }
+    },
   },
 });
 
-export const { addFavorite, removeFavorite } = favoriteSlice.actions;
-export default favoriteSlice.reducer;
+export const { addFav, removeFav } = favoritesSlice.actions;
+export default favoritesSlice.reducer;

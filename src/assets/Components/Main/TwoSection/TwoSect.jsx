@@ -9,12 +9,14 @@ import { getProducts } from "../../../features/Api/ApiSlider";
 import { SlBasket } from "react-icons/sl";
 import { FaRegHeart } from "react-icons/fa6";
 import { CiZoomIn } from "react-icons/ci";
-import { addFavorite } from "../../../features/Favorites/FavoriteSlice";
+import {addFav} from '../../../features/Favorites/FavoriteSlice'
+import { useNavigate } from "react-router-dom";
 
 const TwoSect = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.data.value);
   const status = useSelector((state) => state.data.status);
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (status === "idle") {
@@ -31,12 +33,13 @@ const TwoSect = () => {
   }
 
   const fav = (product) => {
-    dispatch(addFavorite(product));
+    dispatch(addFav(product));
     console.log(product);
-    
-    
   };
   
+  const getInfo = () => {
+    navigate("/detail")
+  }
   return (
     <section id="twoSect">
       <div className="upPartTrend">
@@ -69,7 +72,7 @@ const TwoSect = () => {
                   />
                   <div className="featurePart">
                     <div>
-                      <SlBasket />
+                      <SlBasket onClick={() => getInfo(product)}/>
                     </div>
                     <div>
                       <FaRegHeart onClick={() => fav(product)} />
