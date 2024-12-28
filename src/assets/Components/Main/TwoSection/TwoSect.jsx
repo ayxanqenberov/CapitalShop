@@ -11,6 +11,7 @@ import { FaRegHeart } from "react-icons/fa6";
 import { CiZoomIn } from "react-icons/ci";
 import {addFav} from '../../../features/Favorites/FavoriteSlice'
 import { useNavigate } from "react-router-dom";
+import { addBasket } from "../../../features/Basket/BasketSlice";
 
 const TwoSect = () => {
   const dispatch = useDispatch();
@@ -37,8 +38,10 @@ const TwoSect = () => {
     console.log(product);
   };
   
-  const getInfo = () => {
-    navigate("/detail")
+  const getBasket = (product) => {
+    dispatch(addBasket(product))
+    console.log(product);
+    
   }
   return (
     <section id="twoSect">
@@ -72,7 +75,7 @@ const TwoSect = () => {
                   />
                   <div className="featurePart">
                     <div>
-                      <SlBasket onClick={() => getInfo(product)}/>
+                      <SlBasket onClick={() => getBasket(product)}/>
                     </div>
                     <div>
                       <FaRegHeart onClick={() => fav(product)} />

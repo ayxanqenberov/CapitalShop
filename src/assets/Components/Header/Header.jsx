@@ -20,7 +20,9 @@ const Header = () => {
   const getSign = () => {
     navigate("/sign"); 
   };
-
+  const getAtToBasket = () =>{
+    navigate('/basket')
+  }
   return (
     <header>
       <div className="upHeader">
@@ -118,7 +120,7 @@ const Header = () => {
             <button>Login</button>
           </div>
           <a href="#">
-            <SlBasket />
+            <SlBasket onClick={getAtToBasket} />
           </a>
         </div>
       </div>
